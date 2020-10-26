@@ -50,8 +50,20 @@ function cloudsInSky() {
   pop();
 }
 
-function build() {
-   //translate(-frameCount * 3, 0);
+class AddBuilding {
+  constructor(x, y, r, img) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.building = random(buildings);
+  }
+
+  update() {
+    //translate(-frameCount * 3, 0);
+  }
+
+  draw() {
+   
   image(buildings[1], 0, 0);
-  
+  }
 }
