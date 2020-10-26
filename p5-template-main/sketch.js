@@ -1,7 +1,19 @@
 let movingClouds;
+let smallBuilding;
+let house;
+let orangeBuilding;
+let petStore;
+let school;
+let tallBuilding;
 
 function preload() {
   movingClouds = loadImage('floating-clouds.gif');
+  smallBuilding = loadImage('small-building.png');
+  house = loadImage('house.png');
+  orangeBuilding = loadImage('orange-building.png');
+  petStore = loadImage('pet-store.png');
+  school = loadImage('school.png');
+  tallBuilding = loadImage('tall-building.png');
 }
 
 function setup() {
@@ -13,7 +25,10 @@ function draw() {
   var color2 = color(222, 244, 255);
   setGradient(0, 0, windowWidth, windowHeight, color1, color2, "Y");
 
-  //cloudsInSky();
+  cloudsInSky();
+  buildings();
+
+}
  
 
 function setGradient(x, y, w, h, c1, c2, axis) {
@@ -43,4 +58,34 @@ function cloudsInSky() {
   pop();
 }
 
+function buildings() {
+   // translate(frameCount * 3, 0);
+  
+  push();
+  scale(1.3);
+  image(smallBuilding, 0, height);
+  pop();
+
+  push();
+  scale(0.4);
+  image(house, 0, height);
+  pop();
+
+  push();
+  scale(0.6);
+  image(orangeBuilding, 0, 100);
+  pop();
+
+  push();
+  scale(0.5);
+  image(petStore, 0, height);
+  pop();
+
+  push();
+  image(school, 0, 0);
+  pop();
+
+  push();
+  scale(0.5);
+  image(tallBuilding, 0, height);
 }
