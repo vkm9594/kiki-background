@@ -1,9 +1,11 @@
 let scenery;
 let rect = [];
 let buildings = [];
+let seagull;
 
 function preload() {
   scenery = loadImage('buildings/background.jpg');
+  seagull = loadImage('buildings/seagull.gif');
   for (i = 0; i < 6; i++) {
     buildings[i] = loadImage('buildings/building' + i + '.png');
   }
@@ -11,21 +13,24 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 6; i++) {
     let x = width;
-    let y = height - 430;
-    let w = random(50, 150);
-    let h = random(200, 500);
-    let building = random(buildings);
-    let b = new AddBuilding(x, y, w, h, building);
-    
+    let y = height - 300;
+    let w = random(600);
+    let h = random(300, 700);
+    let b = new AddBuilding(x, y, w, h);
     rect.push(b);
   }
 }
 
 function draw() {
-  image(scenery, 0, 0, width, height)
-  for(build of rect) {
+  image(scenery, 0, 0, width, height);
+  push();
+  scale(0.5);
+  translate(-frameCount, 0);
+  image(seagull, width * 2, 0);
+  pop();
+  for (build of rect) {
     build.update();
     build.draw();
   }
@@ -45,6 +50,6 @@ class AddBuilding {
   }
 
   draw() {
-    image(this.building, this.x, this.y, this.r);
+    image(this.building, this.x, this.y, this.w, this.h);
   }
 }
