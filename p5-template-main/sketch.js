@@ -18,15 +18,17 @@ function setup() {
     let h = random(200, 500);
     let building = random(buildings);
     let b = new AddBuilding(x, y, w, h, building);
+    
     rect.push(b);
   }
 }
 
 function draw() {
   image(scenery, 0, 0, width, height)
-
-  rect[i].update();
-  rect[i].draw();
+  for(build of rect) {
+    build.update();
+    build.draw();
+  }
 }
 
 class AddBuilding {
@@ -39,7 +41,7 @@ class AddBuilding {
   }
 
   update() {
-    translate(-frameCount * 3.5, 0);
+    translate(-frameCount * 2, 0);
   }
 
   draw() {
