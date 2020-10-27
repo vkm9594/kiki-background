@@ -15,9 +15,9 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i < 6; i++) {
     let x = width;
-    let y = height - 300;
+    let y = height - 400;
     let w = random(600);
-    let h = random(300, 700);
+    let h = random(400, 700);
     let b = new AddBuilding(x, y, w, h);
     rect.push(b);
   }
@@ -46,7 +46,7 @@ class AddBuilding {
   }
 
   update() {
-    translate(-frameCount * 2, 0);
+    translate(-frameCount, 0);
   }
 
   draw() {
